@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root {
+  --primary-color: #00ab44;
+  --link-color: #003399;
+  --text-color: #111111;
+  --font-family: 'Fira Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --base-font-size: 9.5pt;
+  --line-height: 1.29;
+  --page-width: 210mm;
+  --page-height: 297mm;
+  --margin-top: 10mm;
+  --margin-bottom: 10mm;
+  --margin-left: 17mm;
+  --margin-right: 17mm;
+}
+
+/* Page & Print Setup */
+@page {
+  size: A4 portrait;
+  margin: 10mm 17mm 10mm 17mm;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: var(--base-font-size);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: 300;
+  color: var(--text-color);
+  line-height: var(--line-height);
+  background-color: #e2e8f0;
+  margin: 0;
+  padding: 20px 0;
+}
+
+/* Page Canvas (Screen View) */
+.page-container {
+  width: var(--page-width);
+  min-height: var(--page-height);
+  margin: 0 auto;
+  padding: var(--margin-top) var(--margin-right) var(--margin-bottom) var(--margin-left);
+  background: #ffffff;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Screen Action Toolbar */
+.screen-toolbar {
+  position: fixed;
+  top: 16px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.toolbar-btn {
+  background: #1e293b;
+  color: #ffffff;
+  border: 1px solid #334155;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-family: var(--font-family);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.toolbar-btn:hover {
+  background: #0f172a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.toolbar-btn.primary {
+  background: #00ab44;
+  border-color: #009038;
+}
+
+.toolbar-btn.primary:hover {
+  background: #009038;
+}
+
+/* Links & Typography */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.inline-link {
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.inline-link i {
+  font-size: 0.95em;
+  color: var(--link-color);
+}
+
+strong, b {
+  font-weight: 700;
+  color: #000000;
+}
+
+em, i {
+  font-style: italic;
+}
+
+/* Header */
+.resume-header {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.resume-header .name {
+  font-size: 1.95rem;
+  font-weight: 700;
+  color: #000000;
+  line-height: 1.1;
+  margin-bottom: 3px;
+  letter-spacing: -0.01em;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.93rem;
+  color: #000000;
+}
+
+.contact-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.contact-links i {
+  font-size: 0.95em;
+  color: var(--link-color);
+}
+
+.contact-links .separator {
+  margin: 0 5px;
+  color: #111111;
+  font-weight: 300;
+  user-select: none;
+}
+
+/* Section Formatting */
+.section {
+  margin-top: 4px;
+  margin-bottom: 1px;
+}
+
+.section-title {
+  font-size: 1.14rem;
+  font-weight: 600;
+  font-variant: small-caps;
+  color: var(--primary-color);
+  letter-spacing: 0.03em;
+  line-height: 1.15;
+  margin-bottom: 2px;
+  padding-bottom: 1px;
+  border-bottom: 0.8pt solid var(--primary-color);
+}
+
+/* Summary */
+.summary-text {
+  font-size: 0.94rem;
+  line-height: 1.30;
+  color: #111111;
+  text-align: justify;
+}
+
+/* Entries */
+.entry {
+  margin-top: 3px;
+  margin-bottom: 1px;
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5px;
+}
+
+.entry-title {
+  font-weight: 700;
+  font-size: 0.94rem;
+  color: #000000;
+}
+
+.entry-date {
+  font-size: 0.93rem;
+  color: #111111;
+  text-align: right;
+  white-space: nowrap;
+  font-weight: 300;
+  margin-left: 10px;
+}
+
+/* Technologies under job titles */
+.entry-tech {
+  font-size: 0.89rem;
+  color: #222222;
+  margin: 0.5px 0 1px 0;
+  line-height: 1.24;
+}
+
+.entry-tech em {
+  font-style: italic;
+  color: #444444;
+}
+
+/* Bullet Lists */
+.bullet-list {
+  list-style: none;
+  padding-left: 1.3em;
+  margin: 0.5px 0 0 0;
+}
+
+.bullet-list li {
+  position: relative;
+  font-size: 0.93rem;
+  line-height: 1.27;
+  margin-bottom: 1px;
+  color: #111111;
+}
+
+.bullet-list li::before {
+  content: "–";
+  position: absolute;
+  left: -1.3em;
+  color: #111111;
+}
+
+/* Skills Table */
+.skills-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1px;
+}
+
+.skills-table td {
+  padding: 1px 0;
+  vertical-align: top;
+  font-size: 0.93rem;
+  line-height: 1.27;
+}
+
+.skills-table td.skill-category {
+  font-weight: 700;
+  color: #000000;
+  width: 88px;
+  white-space: nowrap;
+  padding-right: 10px;
+}
+
+.skills-table td.skill-items {
+  color: #111111;
+}
+
+/* Footer */
+.resume-footer {
+  margin-top: auto;
+  padding-top: 4px;
+  text-align: center;
+  font-size: 0.78rem;
+  color: #111111;
+}
+
+.resume-footer .separator {
+  margin: 0 5px;
+  color: #111111;
+}
+
+/* Print Styles */
+@media print {
+  html, body {
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    height: 100% !important;
+  }
+
+  .screen-toolbar {
+    display: none !important;
+  }
+
+  .page-container {
+    width: 100% !important;
+    min-height: 100% !important;
+    height: 100% !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  a {
+    color: var(--link-color) !important;
+    text-decoration: none !important;
+  }
+
+  .section {
+    page-break-inside: avoid;
+  }
+
+  .entry {
+    page-break-inside: avoid;
+  }
+}
